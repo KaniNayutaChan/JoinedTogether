@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class DefensePlayer : Player
 {
+    public GameObject shieldEmpty;
     public GameObject shield;
     float shieldRotation;
+    public float maxShieldLength;
+    public float shieldLengthMultiplier;
+    Vector3 shieldLength = new Vector3();
 
     // Start is called before the first frame update
     protected override void Start()
@@ -24,6 +28,15 @@ public class DefensePlayer : Player
         }
             
         StopDash();
+
+
+        float length = maxShieldLength - Vector2.Distance(transform.position, PlayerManager.instance.player1.transform.position) * shieldLengthMultiplier;
+        if(length < 0.1f)
+        {
+            length = 0.1f;
+        }
+        shieldLength.Set(length, 0.1f, 1);
+        shield.transform.localScale = shieldLength;
     }
 
     protected override void Dash()
@@ -36,24 +49,49 @@ public class DefensePlayer : Player
     {
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            shieldRotation = 180;
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                shieldRotation = 135;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                shieldRotation = 225;
+            }
+            else
+            {
+                shieldRotation = 180;
+            }
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-            shieldRotation = 0;
-        }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                shieldRotation = 45;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                shieldRotation = 315;
+            }
+            else
+            {
+                shieldRotation = 0;
+            }
+        }
+        else
         {
-            shieldRotation = 90;
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                shieldRotation = 90;
 
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            shieldRotation = 270;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                shieldRotation = 270;
+            }
         }
 
-        shield.transform.rotation = Quaternion.Euler(0, 0, shieldRotation);
+        shieldEmpty.transform.rotation = Quaternion.Euler(0, 0, shieldRotation);
     }
 
     void StopDash()

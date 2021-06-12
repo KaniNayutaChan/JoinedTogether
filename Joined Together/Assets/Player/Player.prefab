@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
+  isDashing: 0
   dashSpeed: 15
   dashCooldown: 3
   dashDuration: 0.2
@@ -407,9 +408,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 3
+  isDashing: 0
   dashSpeed: 15
   dashCooldown: 3
-  shield: {fileID: 6295412718606901042}
+  shieldEmpty: {fileID: 6295412718606901042}
+  shield: {fileID: 6295412717266289755}
+  maxShieldLength: 2
+  shieldLengthMultiplier: 0.2
 --- !u!212 &7498337426828640217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -554,5 +559,10 @@ GameObject:
 --- !u!4 &6295412718606901043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+  m_PrefabInstance: {fileID: 1349653212507117573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6295412717266289755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5037033127429659742, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
   m_PrefabInstance: {fileID: 1349653212507117573}
   m_PrefabAsset: {fileID: 0}
