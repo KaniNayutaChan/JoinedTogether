@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4360027081247567186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2972, y: -0.2972, z: 0}
-  m_LocalScale: {x: 0.4057, y: 0.4057, z: 0.4057}
+  m_LocalPosition: {x: -3, y: -3, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   movementSpeed: 3
-  dashSpeed: 10
+  dashSpeed: 15
   dashDuration: 0.2
   dashCooldown: 3
 --- !u!61 &3014907293022186629
@@ -113,7 +113,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4360027081247567186}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f2d604aeb318ff74e96b98f5124e9f85, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

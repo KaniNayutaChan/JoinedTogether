@@ -27,7 +27,6 @@ public class PlayerManager : MonoBehaviour
             currentPlayer.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             currentPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation; 
 
-
             if (currentPlayer == player1)
             {
                 currentPlayer = player2;
@@ -38,7 +37,6 @@ public class PlayerManager : MonoBehaviour
             }
 
             currentPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-
         }
     }
 }
