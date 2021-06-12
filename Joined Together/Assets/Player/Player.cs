@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D rb;
-    Vector2 velocity;
+    protected Rigidbody2D rb;
+    protected Vector2 velocity;
 
     [Space]
     public float movementSpeed;
+    protected float currentSpeed;
+    [HideInInspector] public bool isDashing = false;
+
+    [Space]
     public float dashSpeed;
-    public float dashDuration;
-    float currentDashDuration;
     public float dashCooldown;
-    float currentDashCooldown;
-    float currentSpeed;
+    protected float currentDashCooldown;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -28,27 +29,14 @@ public class Player : MonoBehaviour
     {
         CallTimers();
 
-        if (PlayerManager.instance.currentPlayer != this.gameObject)
-            return;
-
-        CheckForMove();
-        CheckForDash();
-    }
-
-    protected virtual void CallTimers()
-    {
-        if(currentDashCooldown >= 0)
+        if (PlayerManager.instance.currentPlayer == this.gameObject)
         {
-            currentDashCooldown -= Time.deltaTime;
-        }
+            if (!isDashing)
+            {
+                CheckForMove();
+            }
 
-        if(currentDashDuration >= 0)
-        {
-            currentDashDuration -= Time.deltaTime;
-        }
-        else
-        {
-            currentSpeed = movementSpeed;
+            CheckForDash();
         }
     }
 
@@ -89,10 +77,23 @@ public class Player : MonoBehaviour
         {
             if (currentDashCooldown < 0)
             {
-                currentSpeed = dashSpeed;
-                currentDashDuration = dashDuration;
                 currentDashCooldown = dashCooldown;
+                isDashing = true;
+                Dash();
             }
+        }
+    }
+
+    protected virtual void Dash()
+    {
+
+    }
+
+    protected virtual void CallTimers()
+    {
+        if (currentDashCooldown >= 0)
+        {
+            currentDashCooldown -= Time.deltaTime;
         }
     }
 

@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
 
     [Space]
     public float maxHealth;
-    public float currentHealth;
+    [HideInInspector] public float currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour
 
     void SwitchPlayer()
     {
+        currentPlayer.GetComponent<Player>().isDashing = false;
         currentPlayer.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         currentPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 
