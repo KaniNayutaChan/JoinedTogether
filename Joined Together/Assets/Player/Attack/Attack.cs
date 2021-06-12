@@ -22,7 +22,13 @@ public class Attack : MonoBehaviour
     {
         if(collision.CompareTag("Arena"))
         {
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, 0.05f);
+        }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(gameObject, 0.05f);
+            collision.GetComponent<EnemyHealth>().health -= damage;
         }
     }
 }

@@ -15,7 +15,10 @@ public class CameraSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        destination.Set(PlayerManager.instance.currentPlayer.transform.position.x, PlayerManager.instance.currentPlayer.transform.position.y, -10);
-        transform.position = Vector3.Lerp(transform.position, destination, camSpeed * Time.deltaTime);
+        if (PlayerManager.instance.currentPlayer != null)
+        {
+            destination.Set(PlayerManager.instance.currentPlayer.transform.position.x, PlayerManager.instance.currentPlayer.transform.position.y, -10);
+            transform.position = Vector3.Lerp(transform.position, destination, camSpeed * Time.deltaTime);
+        }
     }
 }

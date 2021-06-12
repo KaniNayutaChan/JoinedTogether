@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     protected Rigidbody2D rb;
     protected Vector2 velocity;
+    [HideInInspector] public bool isDead = false;
 
     [Space]
     public float movementSpeed;
@@ -17,6 +18,10 @@ public class Player : MonoBehaviour
     public float dashCooldown;
     protected float currentDashCooldown;
 
+    [Space]
+    public float invulnerableTime;
+    float currentInvulnerableTime;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -27,6 +32,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        if (isDead)
+            return;
+
         CallTimers();
 
         if (PlayerManager.instance.currentPlayer == this.gameObject)
@@ -95,13 +103,22 @@ public class Player : MonoBehaviour
         {
             currentDashCooldown -= Time.deltaTime;
         }
+
+        if(currentInvulnerableTime >= 0)
+        {
+            currentInvulnerableTime -= Time.deltaTime;
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.CompareTag("Skill"))
+        if (collision.CompareTag("Skill") || collision.CompareTag("Enemy"))
         {
-            PlayerManager.instance.currentHealth -= 1;
+            if (currentInvulnerableTime < 0)
+            {
+                PlayerManager.instance.currentHealth -= 1;
+                currentInvulnerableTime = invulnerableTime;
+            }
         }
     }
 }

@@ -252,6 +252,7 @@ MonoBehaviour:
   isDashing: 0
   dashSpeed: 15
   dashCooldown: 3
+  invulnerableTime: 1
   dashDuration: 0.2
   Attack: {fileID: 6295283626360865108, guid: fb6b4b6ab0a8ea946abe4fdb1695c605, type: 3}
   attackSpeed: 10
@@ -411,10 +412,11 @@ MonoBehaviour:
   isDashing: 0
   dashSpeed: 15
   dashCooldown: 3
+  invulnerableTime: 1
   shieldEmpty: {fileID: 6295412718606901042}
   shield: {fileID: 6295412717266289755}
-  maxShieldLength: 2
-  shieldLengthMultiplier: 0.2
+  maxShieldLength: 3
+  shieldLengthMultiplier: 0.3
 --- !u!212 &7498337426828640217
 SpriteRenderer:
   m_ObjectHideFlags: 0

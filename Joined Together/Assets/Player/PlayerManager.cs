@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     [Space]
     public float maxHealth;
     [HideInInspector] public float currentHealth;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,10 @@ public class PlayerManager : MonoBehaviour
         {
             instance = this;
             currentHealth = maxHealth;
-            currentPlayer = player2;
-            SwitchPlayer();
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -31,6 +34,13 @@ public class PlayerManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
         {
             SwitchPlayer();
+        }
+
+        if(currentHealth <= 0)
+        {
+            player1.GetComponent<Player>().isDead = true;
+            player2.GetComponent<Player>().isDead = true;
+            StartCoroutine(LoseScene());
         }
     }
 
@@ -50,5 +60,18 @@ public class PlayerManager : MonoBehaviour
         }
 
         currentPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    public void StartFight()
+    {
+        currentPlayer = player2;
+        SwitchPlayer();
+        EnemyManager.instance.SpawnEnemy();
+    }
+
+    IEnumerator LoseScene()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(4);
     }
 }
