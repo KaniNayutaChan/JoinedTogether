@@ -8,6 +8,7 @@ public class Bond : MonoBehaviour
     public GameObject gameObject2;
     Color color;
     LineRenderer lineRenderer;
+    public float colourMultiplier;
 
     // Use this for initialization
     void Start()
@@ -25,7 +26,7 @@ public class Bond : MonoBehaviour
             lineRenderer.SetPosition(0, gameObject1.transform.position);
             lineRenderer.SetPosition(1, gameObject2.transform.position);
 
-            color.a = 4 / Vector2.Distance(gameObject1.transform.position, gameObject2.transform.position);
+            color.a = colourMultiplier / Vector2.Distance(gameObject1.transform.position, gameObject2.transform.position);
 
             lineRenderer.startColor = color;
             lineRenderer.endColor = color;

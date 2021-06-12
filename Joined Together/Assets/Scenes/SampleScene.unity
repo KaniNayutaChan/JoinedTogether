@@ -401,17 +401,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5118557514846927077, guid: eb54a06b26b1abd4a8f19ae3c6ee9126, type: 3}
   m_PrefabInstance: {fileID: 1295917007}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1295917014 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7110831110953702940, guid: eb54a06b26b1abd4a8f19ae3c6ee9126, type: 3}
-  m_PrefabInstance: {fileID: 1295917007}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1295917009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0602d7887ed6f8440abd8fb56957386a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1695228636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -487,7 +476,7 @@ PrefabInstance:
     - target: {fileID: 320514393965143183, guid: 9b3c1ba193fab4748a9551b1f6ab7458, type: 3}
       propertyPath: currentPlayer
       value: 
-      objectReference: {fileID: 1295917014}
+      objectReference: {fileID: 0}
     - target: {fileID: 1425874398162038961, guid: 9b3c1ba193fab4748a9551b1f6ab7458, type: 3}
       propertyPath: m_Name
       value: Health

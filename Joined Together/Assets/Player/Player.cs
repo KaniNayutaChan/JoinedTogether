@@ -11,20 +11,20 @@ public class Player : MonoBehaviour
     public float movementSpeed;
     public float dashSpeed;
     public float dashDuration;
-    float startDashDuration;
+    float currentDashDuration;
     public float dashCooldown;
-    float startDashCooldown;
+    float currentDashCooldown;
     float currentSpeed;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentSpeed = movementSpeed;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         CallTimers();
 
@@ -35,16 +35,16 @@ public class Player : MonoBehaviour
         CheckForDash();
     }
 
-    void CallTimers()
+    protected virtual void CallTimers()
     {
-        if(startDashCooldown >= 0)
+        if(currentDashCooldown >= 0)
         {
-            startDashCooldown -= Time.deltaTime;
+            currentDashCooldown -= Time.deltaTime;
         }
 
-        if(startDashDuration >= 0)
+        if(currentDashDuration >= 0)
         {
-            startDashDuration -= Time.deltaTime;
+            currentDashDuration -= Time.deltaTime;
         }
         else
         {
@@ -87,11 +87,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (startDashCooldown < 0)
+            if (currentDashCooldown < 0)
             {
                 currentSpeed = dashSpeed;
-                startDashDuration = dashDuration;
-                startDashCooldown = dashCooldown;
+                currentDashDuration = dashDuration;
+                currentDashCooldown = dashCooldown;
             }
         }
     }
