@@ -8,10 +8,6 @@ public class Player : MonoBehaviour
     Vector2 velocity;
 
     [Space]
-    public float maxHealth;
-    [HideInInspector] public float currentHealth;
-
-    [Space]
     public float movementSpeed;
     public float dashSpeed;
     public float dashDuration;
@@ -24,7 +20,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
         currentSpeed = movementSpeed;
     }
 
@@ -98,6 +93,14 @@ public class Player : MonoBehaviour
                 startDashDuration = dashDuration;
                 startDashCooldown = dashCooldown;
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Skill"))
+        {
+            PlayerManager.instance.currentHealth -= 1;
         }
     }
 }

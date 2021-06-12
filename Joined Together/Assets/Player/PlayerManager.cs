@@ -9,12 +9,17 @@ public class PlayerManager : MonoBehaviour
     public GameObject player2;
     [HideInInspector] public GameObject currentPlayer;
 
+    [Space]
+    public float maxHealth;
+    public float currentHealth;
+
     // Start is called before the first frame update
     void Start()
     {
         if (instance == null)
         {
             instance = this;
+            currentHealth = maxHealth;
             currentPlayer = player2;
             SwitchPlayer();
         }
@@ -44,6 +49,5 @@ public class PlayerManager : MonoBehaviour
         }
 
         currentPlayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        HealthBar.instance.currentPlayer = currentPlayer.GetComponent<Player>();
     }
 }
