@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     [HideInInspector] public GameObject currentPlayer;
+    [HideInInspector] public GameObject currentTargetedPlayer;
 
     [Space]
     public float maxHealth;

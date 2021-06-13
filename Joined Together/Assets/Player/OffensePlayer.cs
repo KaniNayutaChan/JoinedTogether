@@ -19,6 +19,7 @@ public class OffensePlayer : Player
     public float maxAttackSize;
     public float minAttackSize;
     public float attackSizeMultiplier;
+    float attackRotation;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -45,37 +46,75 @@ public class OffensePlayer : Player
 
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                attackVelocity.y = -1;
-                spawnAttack = true;
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    attackVelocity.x = -1;
+                    attackVelocity.y = -1;
+                    attackRotation = 135;
+                    spawnAttack = true;
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    attackVelocity.x = 1;
+                    attackVelocity.y = -1;
+                    attackRotation = 225;
+                    spawnAttack = true;
+                }
+                else
+                {
+                    attackVelocity.y = -1;
+                    attackVelocity.x = 0;
+                    attackRotation = 180;
+                    spawnAttack = true;
+                }
             }
             else if (Input.GetKey(KeyCode.UpArrow))
             {
-                attackVelocity.y = 1;
-                spawnAttack = true;
-            }
-            else
-            {
-                attackVelocity.y = 0;
-            }
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    attackVelocity.y = 1;
+                    attackVelocity.x = -1;
+                    attackRotation = 45;
+                    spawnAttack = true;
 
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                attackVelocity.x = -1;
-                spawnAttack = true;
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                attackVelocity.x = 1;
-                spawnAttack = true;
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    attackVelocity.y = 1;
+                    attackVelocity.x = 1;
+                    attackRotation = 315;
+                    spawnAttack = true;
+                }
+                else
+                {
+                    attackVelocity.y = 1;
+                    attackVelocity.x = 0;
+                    attackRotation = 0;
+                    spawnAttack = true;
+                }
             }
             else
             {
-                attackVelocity.x = 0;
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    attackVelocity.y = 0;
+                    attackVelocity.x = -1;
+                    attackRotation = 90;
+                    spawnAttack = true;
+
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    attackVelocity.y = 0;
+                    attackVelocity.x = 1;
+                    attackRotation = 270;
+                    spawnAttack = true;
+                }
             }
 
             if (spawnAttack)
             {
-                GameObject attack = Instantiate(Attack, transform.position, transform.rotation);
+                GameObject attack = Instantiate(Attack, transform.position, Quaternion.Euler(0,0,attackRotation));
                 attack.GetComponent<Rigidbody2D>().velocity = attackVelocity * attackSpeed;
 
                 float damage = maxDamage - Vector2.Distance(transform.position, PlayerManager.instance.player2.transform.position) * attackDamageMultiplier;

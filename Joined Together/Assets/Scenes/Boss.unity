@@ -213,8 +213,76 @@ MonoBehaviour:
   player1: {fileID: 1295917009}
   player2: {fileID: 1295917008}
   currentPlayer: {fileID: 0}
+  currentTargetedPlayer: {fileID: 0}
   maxHealth: 20
   currentHealth: 0
+--- !u!1001 &415929568
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453046, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5037033128774453047, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+      propertyPath: m_Name
+      value: Shield Empty
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+--- !u!1 &415929569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5037033128774453047, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+  m_PrefabInstance: {fileID: 415929568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &415929570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5037033127429659742, guid: 0862f93c79fe7a44aa9d767146d4a710, type: 3}
+  m_PrefabInstance: {fileID: 415929568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Life
       objectReference: {fileID: 0}
+    - target: {fileID: 6969020323055814190, guid: 8cd486f7de702804c9a16b88af209064, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8631088390158794662, guid: 8cd486f7de702804c9a16b88af209064, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -540,6 +612,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 868371551838445769, guid: eb54a06b26b1abd4a8f19ae3c6ee9126, type: 3}
+      propertyPath: shield
+      value: 
+      objectReference: {fileID: 415929570}
+    - target: {fileID: 868371551838445769, guid: eb54a06b26b1abd4a8f19ae3c6ee9126, type: 3}
+      propertyPath: shieldEmpty
+      value: 
+      objectReference: {fileID: 415929569}
     - target: {fileID: 976558927758225550, guid: eb54a06b26b1abd4a8f19ae3c6ee9126, type: 3}
       propertyPath: m_Name
       value: Player
