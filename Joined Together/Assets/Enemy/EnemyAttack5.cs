@@ -28,6 +28,7 @@ public class EnemyAttack5 : StateMachineBehaviour
         {
             hasUsedAttack = true;
             Ball.instance.destination = new Vector3(Random.Range(-7, 7), Random.Range(-4, 4), 0);
+            animator.transform.up = animator.transform.position - new Vector3(Ball.instance.destination.x, Ball.instance.destination.y, 0);
         }
 
         if (hasUsedAttack)

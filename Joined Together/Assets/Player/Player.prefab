@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject1: {fileID: 5118557514846927077}
   gameObject2: {fileID: 6216635611360047113}
-  colourMultiplier: 4
+  colourMultiplier: 3
 --- !u!120 &972646049378783195
 LineRenderer:
   m_ObjectHideFlags: 0

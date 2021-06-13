@@ -40,7 +40,7 @@ public class EnemyIdle : StateMachineBehaviour
     {
         base.OnStateUpdate(animator, stateInfo, layerIndex);
 
-        animator.transform.up = PlayerManager.instance.currentTargetedPlayer.transform.position - animator.transform.position;
+        animator.transform.up = animator.transform.position - PlayerManager.instance.currentTargetedPlayer.transform.position;
 
         if(timeTillAttack > 0)
         {

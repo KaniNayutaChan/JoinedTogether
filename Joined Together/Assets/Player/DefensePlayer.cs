@@ -35,7 +35,7 @@ public class DefensePlayer : Player
         {
             length = 0.1f;
         }
-        shieldLength.Set(length, 0.1f, 1);
+        shieldLength.Set(length, 0.3f, 1);
         shield.transform.localScale = shieldLength;
     }
 
