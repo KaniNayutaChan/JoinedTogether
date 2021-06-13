@@ -620,6 +620,14 @@ PrefabInstance:
       propertyPath: shieldEmpty
       value: 
       objectReference: {fileID: 415929569}
+    - target: {fileID: 972646049378783195, guid: eb54a06b26b1abd4a8f19ae3c6ee9126, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 972646049378783195, guid: eb54a06b26b1abd4a8f19ae3c6ee9126, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.025314331
+      objectReference: {fileID: 0}
     - target: {fileID: 976558927758225550, guid: eb54a06b26b1abd4a8f19ae3c6ee9126, type: 3}
       propertyPath: m_Name
       value: Player

@@ -34,10 +34,6 @@ public class EnemyIdle : StateMachineBehaviour
         lastUsedAttack = attackToUse;
 
         timeTillAttack = Random.Range(minTimeTillAttack, maxTimeTillAttack);
-
-#if UNITY_EDITOR
-        attackToUse = 5;
-#endif
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
